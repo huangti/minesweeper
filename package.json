@@ -1,0 +1,13 @@
+{
+  "name": "minesweeper",
+  "version": "1.0.0",
+  "description": "经典扫雷网页版，部署于 Cloudflare",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.1"
+  }
+}

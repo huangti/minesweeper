@@ -1,0 +1,13 @@
+{
+  "name": "minesweeper",
+  "compatibility_date": "2026-10-12",
+  "assets": {
+    "directory": "./public"
+  },
+  "routes": [
+    {
+      "pattern": "ms.505250.xyz",
+      "custom_domain": true
+    }
+  ]
+}
