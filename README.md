@@ -23,7 +23,11 @@
 minesweeper/
 ├── public/                 # 静态资源发布目录（Cloudflare 托管）
 │   ├── index.html          # 首页入口
-│   └── minesweeper.html    # 别名入口
+│   ├── minesweeper.html    # 别名入口
+│   ├── favicon.svg         # 高清矢量 Favicon 图标
+│   ├── favicon.ico         # 多分辨率兼容 ICO 图标 (16/32/48px)
+│   └── apple-touch-icon.png# 移动端触控高清图标 (180px)
+├── deploy.py               # Cloudflare Workers API 自动化一键部署脚本
 ├── wrangler.jsonc          # Cloudflare 部署与自定义域名路由配置
 ├── package.json            # 辅助命令脚本
 └── .gitignore
@@ -36,17 +40,17 @@ minesweeper/
 ### 1. 本地预览开发
 
 ```bash
-npm run dev
-# 或 npx wrangler dev
+python3 -m http.server 8080 --directory public
+# 或 npm run dev
 ```
 
 ### 2. 一键发布更新至 Cloudflare
 
-修改 `public/` 下的代码后，执行：
+修改代码后，执行以下命令即可自动完成资源打包与全网部署：
 
 ```bash
-npm run deploy
-# 或 npx wrangler deploy
+python3 deploy.py
+# 或 npm run deploy
 ```
 
 发布后将自动推送到 Cloudflare 边缘节点，并在自定义域名 `https://ms.505250.xyz` 生效。
